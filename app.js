@@ -18,21 +18,29 @@ app.get('/', function(req, res){
 //articles
 app.get('/articles', function(req, res){
 	// res.send('articles')
-  res.render("articles/index", {articles: articles});
+  res.render("articles/article", {articles: articles});
 });
 
-app.get('/articles/new', function(re, res) {
+app.get('/articles/new', function(req, res) {
 	res.send('new article')
 	// res.render("articles/new");
 });
 
+app.get('/about', function(req, res) {
+	res.send('site/about')
+});
+
+app.get('/contact', function(req, res) {
+	res.send('site/contact')
+})
+
 app.get('/articles/:id', function(req, res) {
 	// res.send("new id")
 
-	var index = req.params.id;
-	var book = articles[index];
-	res.render("articles/show", {article: article})
-})
+// 	var index = req.params.id;
+// 	var article = articles[index];
+// 	res.render("articles/show", {article: article})
+});
 
 app.post('/articles', function(req, res) {
 	console.log(req.body.article);
