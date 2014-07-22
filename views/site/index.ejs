@@ -1,10 +1,13 @@
-<!doctype html/>
+<!doctype html>
 <html>
-<head>
-	<title></title>
-</head>
-<body>
-	<h1>the Daily Planet</h2>
-
-</body>
+	<head>
+		<title>Articles</title>
+	</head>
+	<body>
+		<ul>
+		<% article.forEach(function(book) { %>
+		<li> <%= article.title %> </li>
+	<% })%>
+		</ul>
+	</body>
 </html>
