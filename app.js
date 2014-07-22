@@ -9,44 +9,30 @@ app.use(bodyParser.urlencoded());
 
 app.set('view engine', 'ejs');
 
-//homepage
-
-// app.get('/', function(req, res){
-//   res.render('articles/articles', {articles: articles});
-// });
-
-//articles
-app.get('/articles/new', function(req, res){
-	// res.send('articles')
-  res.render("articles/new");
+//STATIC PAGES
+app.get('/', function(req, res) {
+	res.render('site/about');
 });
 
-// app.get('/articles/new', function(req, res) {
-// 	// res.send('new article')
-// 	res.render("articles/new");
-// });
-
-// app.get('/about', function(req, res) {
-// 	res.send('about')
-// });
 app.get('/contact', function(req, res) {
 	res.render('site/contact');
-})
+});
 
 app.get('/about', function(req, res) {
 	res.render('site/about');
 });
 
-app.get('/contact', function(req, res) {
-	res.send('/contact')
-})
+//NEW ARTICLE CREATOR
+
+app.get('/articles/new', function(req, res){
+  res.render("articles/new");
+});
 
 app.get('/articles', function(req, res) {
 	res.send(articles);
 })
 
 app.get('/articles/:id', function(req, res) {
-	// res.send("new id")
 	var index = req.params.id;
 	var article = articles[index];
 	res.render("articles/show", {article: article})
@@ -59,4 +45,6 @@ app.post('/articles', function(req, res) {
 	res.redirect('/articles');
 });
 
-app.listen(3000);
+app.listen(3000, function() {
+	console.log("Crazy times on localhost:3000")
+});
